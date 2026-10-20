@@ -1,147 +1,72 @@
 class Lagu:
-    """Model data untuk satu entri koleksi Melodia."""
+    """Model data resmi untuk entri lagu di Melodia."""
 
-    KOLOM = ("judul", "penulis", "isbn", "status")
+    KOLOM = ("judul", "penyanyi", "album", "genre", "status", "pendengar")
     STATUS_VALID = ("Tersedia", "Dipinjam")
 
-    def __init__(
-        self,
-        judul,
-        penulis,
-        isbn,
-        status="Tersedia"
-    ):
+    def __init__(self, judul, penyanyi, album="", genre="Pop", status="Tersedia", pendengar=0):
         self.judul = str(judul).strip()
-        self.penulis = str(penulis).strip()
-        self.isbn = str(isbn).strip()
+        self.penyanyi = str(penyanyi).strip()
+        self.album = str(album).strip() or "Single"
+        self.genre = str(genre).strip() or "General"
         self.status = str(status).strip()
+        
+        try:
+            self.pendengar = int(pendengar)
+        except (ValueError, TypeError):
+            self.pendengar = 0
 
         self.validasi()
 
     def validasi(self):
-        """Memastikan data penting telah diisi."""
         if not self.judul:
-            raise ValueError("Judul wajib diisi.")
+            raise ValueError("Judul lagu wajib diisi.")
+        if not self.penyanyi:
+            raise ValueError("Nama penyanyi/pencipta wajib diisi.")
 
-        if not self.penulis:
-            raise ValueError("Penulis wajib diisi.")
+        status_lower = self.status.casefold()
+        if status_lower not in {s.casefold() for s in self.STATUS_VALID}:
+            raise ValueError("Status harus 'Tersedia' atau 'Dipinjam'.")
+        
+        self.status = "Tersedia" if status_lower == "tersedia" else "Dipinjam"
 
-        if not self.isbn:
-            raise ValueError("ISBN wajib diisi.")
-
-        if self.status.casefold() not in {
-            status.casefold() for status in self.STATUS_VALID
-        }:
-            raise ValueError(
-                "Status harus Tersedia atau Dipinjam."
-            )
-
-        # Samakan penulisan status agar konsisten.
-        if self.status.casefold() == "tersedia":
-            self.status = "Tersedia"
-        else:
-            self.status = "Dipinjam"
+    @property
+    def pendengar_formatted(self):
+        """Format angka pendengar (contoh: 1,500,000 / 1.5M)."""
+        if self.pendengar >= 1_000_000:
+            return f"{self.pendengar / 1_000_000:.1f}M"
+        if self.pendengar >= 1_000:
+            return f"{self.pendengar / 1_000:.1f}K"
+        return str(self.pendengar)
 
     def to_list(self):
-        """Mengubah objek menjadi daftar untuk CSV."""
         return [
             self.judul,
-            self.penulis,
-            self.isbn,
-            self.status
+            self.penyanyi,
+            self.album,
+            self.genre,
+            self.status,
+            str(self.pendengar)
         ]
 
+     me
     def to_dict(self):
-        """Mengubah objek menjadi dictionary."""
         return {
             "judul": self.judul,
-            "penulis": self.penulis,
-            "isbn": self.isbn,
-            "status": self.status
+            "penyanyi": self.penyanyi,
+            "album": self.album,
+            "genre": self.genre,
+            "status": self.status,
+            "pendengar": str(self.pendengar)
         }
 
     @classmethod
     def from_dict(cls, data):
-        """Membuat objek Lagu dari satu baris dictionary CSV."""
         return cls(
             judul=data.get("judul", ""),
-            penulis=data.get("penulis", ""),
-            isbn=data.get("isbn", ""),
-            status=data.get("status", "Tersedia")
-        )
-
-    def __str__(self):
-        return (
-            f"{self.judul} — {self.penulis} "
-            f"(ISBN: {self.isbn}) [{self.status}]"
-        )
-
-    def __repr__(self):
-        return (
-            f"Lagu(judul={self.judul!r}, "
-            f"penulis={self.penulis!r}, "
-            f"isbn={self.isbn!r}, "
-            f"status={self.status!r})"
-        )
-
-
-class Buku:
-    """
-    Model kompatibilitas untuk kode lama.
-    Tetap tersedia jika program lain masih memakai Buku.
-    """
-
-    def __init__(
-        self,
-        judul,
-        penulis,
-        isbn,
-        status="Tersedia"
-    ):
-        self.judul = str(judul).strip()
-        self.penulis = str(penulis).strip()
-        self.isbn = str(isbn).strip()
-        self.status = str(status).strip()
-
-    def to_list(self):
-        return [
-            self.judul,
-            self.penulis,
-            self.isbn,
-            self.status
-        ]
-
-    def __str__(self):
-        return (
-            f"{self.judul} oleh {self.penulis} "
-            f"(ISBN: {self.isbn}) - {self.status}"
-        )
-
-
-class Anggota:
-    """Model data anggota perpustakaan."""
-
-    def __init__(self, id_anggota, nama, kelas, no_hp):
-        self.id = str(id_anggota).strip()
-        self.nama = str(nama).strip()
-        self.kelas = str(kelas).strip()
-        self.no_hp = str(no_hp).strip()
-
-    def to_list(self):
-        return [
-            self.id,
-            self.nama,
-            self.kelas,
-            self.no_hp
-        ]
-
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "nama": self.nama,
-            "kelas": self.kelas,
-            "no_hp": self.no_hp
-        }
-
-    def __str__(self):
-        return f"{self.nama} ({self.id}) - Kelas {self.kelas}"
+            penyanyi=data.get("penyanyi", ""),
+            album=data.get("album", ""),
+            genre=data.get("genre", ""),
+            status=data.get("status", "Tersedia"),
+            pendengar=data.get("pendengar", 0)
+    )
