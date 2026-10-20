@@ -1,21 +1,21 @@
-judul,penulis,isbn,status
-Laskar Pelangi,Andrea Hirata,978-979-3062-79-7,Tersedia
-Negeri 5 Menara,Ahmad Fuadi,978-979-1227-94-5,Dipinjam
-Ayat-Ayat Cinta,Habiburrahman Shirazy,978-602-8997-25-5,Tersedia
-Perahu Kertas,Dee Lestari,978-979-1227-89-1,Tersedia
-Dilan 1990,Pidi Baiq,978-602-7870-01-6,Dipinjam
-Bidadari Bening,Habiburrahman Shirazy,978-602-441-063-7,Tersedia
-Hafalan Shalat,Helvy Tiana Rosa,978-602-8997-32-3,Tersedia
-Ronggeng Dukuh Paruk,Ahmad Tohari,978-979-4074-07-2,Dipinjam
-Surat Kecil untuk Tuhan,Agnes Davonar,978-602-1234-56-7,Tersedia
-Cinta Brontosaurus,Raditya Dika,978-979-1102-10-5,Dipinjam
-Koala Kumal,Raditya Dika,978-602-1234-58-1,Tersedia
-Sang Pemimpi,Andrea Hirata,978-979-1227-92-1,Dipinjam
-Edensor,Andrea Hirata,978-979-1227-93-8,Tersedia
-Ksatria dan Putri,Dee Lestari,978-979-3062-10-1,Tersedia
-9 Summers 10 Autumns,Iwan Setyawan,978-602-8730-59-9,Dipinjam
-Garis Waktu,Fiersa Besari,978-602-1234-78-9,Tersedia
-Selamat Tinggal,Fiersa Besari,978-602-1234-79-6,Dipinjam
-Orang-Orang Biasa,Andrea Hirata,978-602-4246-51-5,Tersedia
-Bulan Terbelah,Hanum Rais,978-602-2911-11-1,Tersedia
-99 Cahaya di Langit Eropa,Hanum Rais,978-602-9782-41-7,Dipinjam
+judul,penyanyi,album,genre,status,pendengar
+Laskar Pelangi,Nidji,Laskar Pelangi OST,Pop / Rock,Tersedia,4523000
+Akad,Payung Teduh,Ruang Tunggu,Indie Folk,Dipinjam,8912000
+Hati-Hati di Jalan,Tulus,Manusia,Pop,Tersedia,12450000
+Komang,Raim Laode,Komang - Single,Indie Pop,Tersedia,9810000
+Secukupnya,Hindia,Menari Dalam Bayangan,Alternative,Dipinjam,6720000
+Untungnya, Bernadya, Bernama Perasaan, Pop, Tersedia, 15300000
+Sial,Mahalini,Fabula,Pop,Dipinjam,11200000
+Evaluasi,Hindia,Menari Dalam Bayangan,Alternative,Tersedia,5430000
+Bertaut,Nadin Amizah,Selamat Ulang Tahun,Indie Folk,Tersedia,7890000
+Dumes,Denny Caknan,Dumes - Single,Pop Jawa,Dipinjam,4120000
+Gala Bunga Matahari,Sal Priadi,Penanda Seru,Indie Pop,Tersedia,8900000
+Monokrom,Tulus,Monokrom,Pop,Tersedia,10500000
+Melukis Senja,Budi Doremi,Melukis Senja - Single,Pop,Dipinjam,6200000
+Rumah ke Rumah,Hindia,Menari Dalam Bayangan,Alternative,Tersedia,5100000
+Nanti Kita Ceritakan Tentang Hari Ini,Marcell,NKCTHI OST,Pop,Dipinjam,3400000
+Pelukku untuk Pelikmu,Fiersa Besari,NKCTHI OST,Acoustic,Tersedia,7150000
+Runtuh,Feby Putri ft. Fiersa Besari,Runtuh - Single,Indie Folk,Tersedia,9300000
+Mesra-mesranya kecil-kecilan dulu,Sal Priadi,MARKERS AND SUCH,Indie Pop,Dipinjam,4800000
+Jiwa Yang Bersedih,Ghea Indrawari,Jiwa Yang Bersedih,Pop,Tersedia,8200000
+Penjaga Hati,Nadhif Basalamah,Penjaga Hati - Single,Indie Pop,Tersedia,13400000
